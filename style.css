@@ -1,80 +1,46 @@
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&display=swap');
-
-/* Custom Colors */
-:root {
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
-    --background-color: #1a1a1a;
-    --text-color: #f8f9fa;
-}
-
-/* Global Styles */
+/* General styles */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-    color: var(--primary-color);
-}
-
-/* Navbar */
-.navbar {
-    background-color: var(--primary-color);
-}
-
-.nav-link {
-    color: var(--text-color) !important;
-}
-
-.nav-link:hover {
-    color: var(--secondary-color) !important;
-}
-
-/* Header */
 header {
-    background-color: var(--primary-color);
-    color: var(--text-color);
+    background-color: #007bff;
+    color: #ffffff;
+    text-align: center;
+    padding: 60px 0;
 }
 
 header h1 {
-    font-size: 3rem;
+    font-size: 48px;
+    margin-bottom: 10px;
+    color: #ffffff; /* Ensure text color is white */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adding text shadow for better readability */
 }
 
 header p {
-    font-size: 1.25rem;
+    font-size: 24px;
+    margin: 0;
+    color: #ffffff; /* Ensure text color is white */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Adding text shadow for better readability */
 }
 
-/* Buttons */
-.btn {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    border-radius: 0;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: var(--secondary-color);
-    color: var(--background-color);
-}
-
-/* Footer */
-footer {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-}
-
-/* Map Styles */
+/* Map styles */
 #map {
-    border: 2px solid var(--primary-color);
+    border: 2px solid #007bff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Interactive Features */
-.interactive-features {
-    background-color: var(--secondary-color);
-    padding: 20px;
-    border-radius: 5px;
+/* Footer styles */
+footer {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
