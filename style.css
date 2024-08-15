@@ -1,21 +1,80 @@
-body {
-    font-family: 'Arial', sans-serif;
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&display=swap');
+
+/* Custom Colors */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --background-color: #1a1a1a;
+    --text-color: #f8f9fa;
 }
 
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--primary-color);
+}
+
+.nav-link {
+    color: var(--text-color) !important;
+}
+
+.nav-link:hover {
+    color: var(--secondary-color) !important;
+}
+
+/* Header */
 header {
-    background: url('path/to/your/earth-image.jpg') no-repeat center center;
-    background-size: cover;
+    background-color: var(--primary-color);
+    color: var(--text-color);
 }
 
 header h1 {
     font-size: 3rem;
-    font-weight: bold;
 }
 
-.lead {
-    font-size: 1.5rem;
+header p {
+    font-size: 1.25rem;
 }
 
+/* Buttons */
+.btn {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border-radius: 0;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+}
+
+/* Footer */
 footer {
-    background-color: #222;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+/* Map Styles */
+#map {
+    border: 2px solid var(--primary-color);
+}
+
+/* Interactive Features */
+.interactive-features {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 5px;
 }
