@@ -1,40 +1,21 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
-    text-align: center;
+    font-family: 'Arial', sans-serif;
 }
 
-h1 {
-    color: #333;
+header {
+    background: url('path/to/your/earth-image.jpg') no-repeat center center;
+    background-size: cover;
 }
 
-form {
-    margin-bottom: 20px;
+header h1 {
+    font-size: 3rem;
+    font-weight: bold;
 }
 
-input[type="text"] {
-    padding: 10px;
-    font-size: 16px;
-    width: 200px;
+.lead {
+    font-size: 1.5rem;
 }
 
-button {
-    padding: 10px 15px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-#map {
-    width: 100%;
-    height: 500px;
-    margin-top: 20px;
+footer {
+    background-color: #222;
 }
