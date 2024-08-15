@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "echo 'No build step necessary'"
   },
   "repository": {
     "type": "git",
@@ -22,10 +23,4 @@
     "express": "^4.19.2",
     "google-auth-library": "^9.13.0"
   }
-
-  "scripts": {
-    "start": "node server.js",
-    "build": "echo 'No build step necessary'"
-}
-
 }
