@@ -1,0 +1,25 @@
+{
+  "name": "knowtheearth",
+  "version": "1.0.0",
+  "description": "group project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Danik-Ux/KnowTheEarth.git"
+  },
+  "author": "Daniyar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Danik-Ux/KnowTheEarth/issues"
+  },
+  "homepage": "https://github.com/Danik-Ux/KnowTheEarth#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "google-auth-library": "^9.13.0"
+  }
+}

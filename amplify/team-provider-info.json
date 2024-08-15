@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-knowtheearth-dev-6b0ce-authRole",
+      "UnauthRoleArn": "arn:aws:iam::992382584027:role/amplify-knowtheearth-dev-6b0ce-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::992382584027:role/amplify-knowtheearth-dev-6b0ce-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-knowtheearth-dev-6b0ce-deployment",
+      "UnauthRoleName": "amplify-knowtheearth-dev-6b0ce-unauthRole",
+      "StackName": "amplify-knowtheearth-dev-6b0ce",
+      "StackId": "arn:aws:cloudformation:us-west-2:992382584027:stack/amplify-knowtheearth-dev-6b0ce/16dd8700-59ee-11ef-bb33-0644f8e595a7",
+      "AmplifyAppId": "d3hwxvxjqggka"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d3hwxvxjqggka",
+          "type": "cicd"
+        }
+      }
+    }
+  }
+}

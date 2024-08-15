@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Know the Earth</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    <h1>Login to Know the Earth</h1>
+    <div id="g_id_onload"
+        data-client_id="988965763799-pmdsmehdoodlofphi9n352r2cl281hjr.apps.googleusercontent.com"
+        data-login_uri="https://main.d3hwxvxjqggka.amplifyapp.com/" 
+        data-auto_prompt="false">
+    </div>
+    <div class="g_id_signin" data-type="standard"></div>
+    <script>
+        function handleCredentialResponse(response) {
+            // Simulate storing the user's authentication status in session storage
+            sessionStorage.setItem('user', JSON.stringify(response.credential)); // Store the credential response
+
+            // Redirect to the main page after authentication
+            window.location.href = "index.html"; 
+        }
+
+        window.onload = function () {
+            google.accounts.id.initialize({
+                client_id: '988965763799-pmdsmehdoodlofphi9n352r2cl281hjr.apps.googleusercontent.com',
+                callback: handleCredentialResponse
+            });
+            google.accounts.id.renderButton(
+                document.getElementById("g_id_signin"),
+                { theme: "outline", size: "large" }  // Customize the button appearance
+            );
+        };
+    </script>
+</body>
+</html>

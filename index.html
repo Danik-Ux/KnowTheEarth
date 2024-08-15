@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Know the Earth</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+    <h1>Welcome to Know the Earth</h1>
+    <form id="locationForm">
+        <label for="location">Enter a location:</label>
+        <input type="text" id="location" name="location" required>
+        <button type="submit">Add Location</button>
+    </form>
+    <div id="map" style="height: 500px;"></div>
+
+    <!-- Include app.js for client-side logic -->
+    <script src="app.js"></script>
+</body>
+</html>
