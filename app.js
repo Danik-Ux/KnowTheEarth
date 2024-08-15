@@ -25,35 +25,3 @@ document.getElementById('locationForm').addEventListener('submit', function(even
         L.marker(latlng).addTo(map);
     });
 });
-
-// Handle Google OAuth2 Sign-In
-function handleCredentialResponse(response) {
-    fetch('/auth/google', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ id_token: response.credential })
-    })
-    .then(response => response.text())
-    .then(data => {
-        console.log(data); // Handle the response from the server
-        alert(data); // Display an alert with the server's response
-    });
-}
-if (!sessionStorage.getItem('user')) {
-    window.location.href = 'auth.html';
-}
-
-// Initialize Google Sign-In on window load
-window.onload = function () {
-    google.accounts.id.initialize({
-        client_id: '988965763799-pmdsmehdoodlofphi9n352r2cl281hjr.apps.googleusercontent.com',
-        callback: handleCredentialResponse
-    });
-    google.accounts.id.renderButton(
-        document.getElementById("g_id_signin"),
-        { theme: "outline", size: "large" }  // Customize the button appearance
-    );
-    google.accounts.id.prompt(); // Display the One Tap prompt automatically
-};
