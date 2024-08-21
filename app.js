@@ -1,7 +1,11 @@
+window.location.href = 'https://knowtheearth.auth.us-west-2.amazoncognito.com/login?client_id=14rnop7mqm59es8ku2h5m9vkaa&response_type=code&scope=email+openid+phone&redirect_uri=https://main.d3hwxvxjqggka.amplifyapp.com';
+
 import Amplify, { Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
 
 Amplify.configure(awsconfig);
+
+
 
 document.addEventListener('DOMContentLoaded', async function() {
     try {
@@ -14,9 +18,6 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 });
 
-function initializeMap() {
-    // Your existing map initialization code
-}
 
 // Initialize the map
 var map = L.map('map', {

@@ -22,7 +22,9 @@
           "FAMILY_NAME",
           "GIVEN_NAME"
         ],
-        "socialProviders": [],
+        "socialProviders": [
+          "GOOGLE"
+        ],
         "usernameAttributes": [
           "EMAIL"
         ],
