@@ -17,9 +17,6 @@
           "appId": "d3hwxvxjqggka",
           "type": "cicd"
         }
-      },
-      "auth": {
-        "Knowtheearth": {}
       }
     }
   }

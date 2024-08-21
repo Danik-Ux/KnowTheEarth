@@ -9,13 +9,9 @@ body {
 
 header {
     background-color: #007bff;
-    background-image: url('https://images.pexels.com/photos/41953/earth-blue-planet-globe-planet-41953.jpeg');
-    background-size: cover;
-    background-position: center;
     color: #ffffff;
     text-align: center;
     padding: 60px 0;
-    padding: 120px 0;
 }
 
 header h1 {
@@ -24,17 +20,20 @@ header h1 {
     color: #ffffff; /* Ensure text color is white */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adding text shadow for better readability */
 }
+
 header p {
     font-size: 24px;
     margin: 0;
     color: #ffffff; /* Ensure text color is white */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Adding text shadow for better readability */
 }
+
 /* Map styles */
 #map {
     border: 2px solid #007bff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 /* Footer styles */
 footer {
     background-color: #000000;

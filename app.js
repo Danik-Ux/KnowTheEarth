@@ -1,5 +1,3 @@
-// Initialize the map and set default view
-var map = L.map('map').setView([0, 0], 2);
 // Initialize the map
 var map = L.map('map', {
     fullscreenControl: true, // Enable fullscreen control
