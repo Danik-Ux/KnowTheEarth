@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Know the Earth</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Sign In</h2>
+        <form id="signInForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <button type="submit">Sign In</button>
+        </form>
+        <div id="authMessage"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/aws-amplify"></script>
+    <script src="login.js"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@
   "cognitoConfig": {
     "identityPoolName": "testAuthIdentityPool",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "knowth659146e4",
+    "resourceNameTruncated": "knowtha3f4a05b",
     "userPoolName": "Knowtheearth",
     "autoVerifiedAttributes": [
       "email"
@@ -26,17 +26,17 @@
     ],
     "requiredAttributes": [
       "email",
-      "name",
-      "family_name"
+      "family_name",
+      "given_name"
     ],
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [],
     "userpoolClientReadAttributes": [],
-    "userpoolClientLambdaRole": "Knowth659146e4_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "Knowtha3f4a05b_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "659146e4",
+    "sharedId": "a3f4a05b",
     "resourceName": "Knowtheearth",
     "authSelections": "identityPoolAndUserPool",
     "serviceName": "Cognito",
@@ -49,28 +49,7 @@
     "adminQueries": false,
     "thirdPartyAuth": false,
     "authProviders": [],
-    "hostedUI": true,
-    "hostedUIDomainName": "7655ax2l0le2",
-    "authProvidersUserPool": [
-      "Google"
-    ],
-    "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"name\":\"name\",\"family_name\":\"family_name\",\"username\":\"sub\"}}]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://main.d3hwxvxjqggka.amplifyapp.com\"],\"LogoutURLs\":[\"https://main.d3hwxvxjqggka.amplifyapp.com\"]}",
     "usernameCaseSensitive": false,
-    "useEnabledMfas": true,
-    "authRoleArn": {
-      "Fn::GetAtt": [
-        "AuthRole",
-        "Arn"
-      ]
-    },
-    "unauthRoleArn": {
-      "Fn::GetAtt": [
-        "UnauthRole",
-        "Arn"
-      ]
-    },
-    "breakCircularDependency": true,
-    "dependsOn": []
+    "useEnabledMfas": true
   }
 }

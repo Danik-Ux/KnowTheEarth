@@ -1,3 +1,23 @@
+import Amplify, { Auth } from 'aws-amplify';
+import awsconfig from './aws-exports';
+
+Amplify.configure(awsconfig);
+
+document.addEventListener('DOMContentLoaded', async function() {
+    try {
+        await Auth.currentAuthenticatedUser();
+        // User is authenticated, continue loading the map
+        initializeMap();
+    } catch {
+        // User is not authenticated, redirect to login page
+        window.location.href = 'login.html';
+    }
+});
+
+function initializeMap() {
+    // Your existing map initialization code
+}
+
 // Initialize the map
 var map = L.map('map', {
     fullscreenControl: true, // Enable fullscreen control
