@@ -1,55 +1,91 @@
-import Amplify, { Auth } from 'aws-amplify';
-import awsconfig from './aws-exports';
-import { withAuthenticator } from '@aws-amplify/ui-react';
+import { AmplifySignOut, withAuthenticator } from '@aws-amplify/ui-react';
+import { Amplify } from 'aws-amplify';
+import awsExports from './aws-exports';
+import L from 'leaflet';
+import 'leaflet.fullscreen/Control.FullScreen.js';
+import 'leaflet.markercluster/dist/leaflet.markercluster.js';
+import 'leaflet.zoomslider/L.Control.Zoomslider.js';
 
-Amplify.configure(awsconfig);
+Amplify.configure(awsExports);
 
-function initializeMap() {
-    // Initialize the map
-    var map = L.map('map', {
-        fullscreenControl: true,
-        zoomsliderControl: true,
-    }).setView([0, 0], 2);
+function App() {
+  // Initialize the map after the component mounts
+  useEffect(() => {
+    const map = L.map('map', {
+      center: [51.505, -0.09],
+      zoom: 2,
+      layers: [
+        L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+          maxZoom: 18,
+          attribution: '&copy; <a href="https://www.arcgis.com/home/item.html?id=fd61b9e0c69c4e14bebd50a9a968348c">Sentinel Hub</a>'
+        })
+      ]
+    });
 
-    L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-        maxZoom: 18,
-        attribution: '&copy; <a href="https://www.arcgis.com/home/item.html?id=fd61b9e0c69c4e14bebd50a9a968348c">Sentinel Hub</a>'
-    }).addTo(map);
+    // Add additional controls here
+    L.control.fullscreen().addTo(map);
+    L.control.zoomslider().addTo(map);
 
-    var markers = L.markerClusterGroup();
-
-    var marker1 = L.marker([51.5, -0.09]).bindPopup('Marker 1');
-    var marker2 = L.marker([51.495, -0.083]).bindPopup('Marker 2');
-    var marker3 = L.marker([51.49, -0.1]).bindPopup('Marker 3');
-
-    markers.addLayer(marker1);
-    markers.addLayer(marker2);
-    markers.addLayer(marker3);
-
+    // Add marker cluster group
+    const markers = L.markerClusterGroup();
+    markers.addLayer(L.marker([51.5, -0.09]));
     map.addLayer(markers);
 
-    marker1.bindTooltip("I am a tooltip for Marker 1").openTooltip();
+  }, []);
 
-    document.getElementById('locationForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        var location = document.getElementById('location').value;
-        fetch('/addLocation', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ location: location })
-        })
-        .then(response => response.json())
-        .then(data => {
-            var latlng = [data.lat, data.lng];
-            map.setView(latlng, 10);
-            L.marker(latlng).addTo(map);
-        });
-    });
+  return (
+    <div className="App">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="#">Know the Earth</a>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">Features</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">Contact</a>
+              </li>
+              <li className="nav-item">
+                <AmplifySignOut />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <header className="text-white text-center py-5">
+        <div className="container">
+          <h1>Welcome to Know The Earth</h1>
+          <p className="lead">Explore the Earth’s geographical features in high resolution</p>
+        </div>
+      </header>
+
+      <div className="container mt-5">
+        <div className="row">
+          <div className="col-lg-8">
+            <div id="map" style="height: 500px;"></div>
+          </div>
+          <div className="col-lg-4">
+            <h2>Interactive Features</h2>
+            <p>Use the tools on the map to explore various geographical features.</p>
+          </div>
+        </div>
+      </div>
+
+      <footer className="bg-dark text-white text-center py-3 mt-5">
+        <div className="container">
+          <p>&copy; 2024 Know the Earth. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  );
 }
 
-// Call initializeMap once the page is fully loaded
-window.onload = initializeMap;
-
-export default withAuthenticator(initializeMap);
+export default withAuthenticator(App);
