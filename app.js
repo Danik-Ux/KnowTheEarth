@@ -1,9 +1,18 @@
+import Amplify, { API, graphqlOperation } from 'aws-amplify';
+import awsconfig from './aws-exports';
+import { createLocation } from './graphql/mutations';
+import { generateClient } from "aws-amplify/api";
+
+Amplify.configure(awsconfig);
+
+const client = generateClient();
+
 // Redirect to AWS Cognito Hosted UI for authentication
 if (!window.location.href.includes('code=')) {
     window.location.href = 'https://knowtheearth.auth.us-west-2.amazoncognito.com/login?client_id=14rnop7mqm59es8ku2h5m9vkaa&response_type=code&scope=email+openid+phone&redirect_uri=https://main.d3hwxvxjqggka.amplifyapp.com';
 } else {
     // Assuming the user is authenticated, you can now run your map initialization code
-
+    
     // Initialize the map
     var map = L.map('map', {
         fullscreenControl: true, // Enable fullscreen control
@@ -36,21 +45,25 @@ if (!window.location.href.includes('code=')) {
     marker1.bindTooltip("I am a tooltip for Marker 1").openTooltip();
 
     // Handle the form submission for adding a location
-    document.getElementById('locationForm').addEventListener('submit', function(event) {
+    document.getElementById('locationForm').addEventListener('submit', async function(event) {
         event.preventDefault();
-        var location = document.getElementById('location').value;
-        fetch('/addLocation', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ location: location })
-        })
-        .then(response => response.json())
-        .then(data => {
-            var latlng = [data.lat, data.lng];
-            map.setView(latlng, 10);
-            L.marker(latlng).addTo(map);
-        });
+        const locationName = document.getElementById('location').value;
+        const coordinates = "example, coordinates"; // Replace with actual coordinates from map interaction
+
+        try {
+            const newLocation = await client.graphql({
+                query: createLocation,
+                variables: {
+                    input: {
+                        name: locationName,
+                        coordinates: coordinates,
+                        createdAt: new Date().toISOString(),
+                    }
+                }
+            });
+            console.log('Location saved:', newLocation);
+        } catch (error) {
+            console.error('Error saving location:', error);
+        }
     });
 }
