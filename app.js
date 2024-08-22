@@ -1,6 +1,3 @@
-// Import required modules from AWS Amplify
-import { API, graphqlOperation } from 'aws-amplify';
-import { createUserPreferences } from './graphql/mutations'; // Adjust the path as needed
 
 // Wrap the existing code in a function to ensure imports are resolved first
 (function initializeApp() {
