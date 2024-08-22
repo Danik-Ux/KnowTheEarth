@@ -19,8 +19,9 @@
   },
   "homepage": "https://github.com/Danik-Ux/KnowTheEarth#readme",
   "dependencies": {
+    "@aws-amplify/datastore": "^5.0.46",
     "@aws-amplify/ui-react": "^6.2.0",
-    "aws-amplify": "^6.5.1",
+    "aws-amplify": "^6.5.2",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "google-auth-library": "^9.13.0"

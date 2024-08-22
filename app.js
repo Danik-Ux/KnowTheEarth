@@ -1,3 +1,9 @@
+// Import necessary modules at the top of the file
+import { DataStore } from '@aws-amplify/datastore';
+import { UserPreferences } from './models'; // Ensure this path is correct based on where your models are located
+
+// Your existing imports and code here...
+
 // Redirect to AWS Cognito Hosted UI for authentication
 if (!window.location.href.includes('code=')) {
     window.location.href = 'https://knowtheearth.auth.us-west-2.amazoncognito.com/login?client_id=14rnop7mqm59es8ku2h5m9vkaa&response_type=code&scope=email+openid+phone&redirect_uri=https://main.d3hwxvxjqggka.amplifyapp.com';
@@ -16,41 +22,17 @@ if (!window.location.href.includes('code=')) {
         attribution: '&copy; <a href="https://www.arcgis.com/home/item.html?id=fd61b9e0c69c4e14bebd50a9a968348c">Sentinel Hub</a>'
     }).addTo(map);
 
-    // Initialize the marker cluster group
-    var markers = L.markerClusterGroup();
+    // Your existing marker cluster code here...
 
-    // Add markers to the map (example)
-    var marker1 = L.marker([51.5, -0.09]).bindPopup('Marker 1');
-    var marker2 = L.marker([51.495, -0.083]).bindPopup('Marker 2');
-    var marker3 = L.marker([51.49, -0.1]).bindPopup('Marker 3');
+    // Add form submission for saving a new location to map and preferences
+    document.getElementById('savePreferences').addEventListener('click', async () => {
+        const mapView = document.getElementById('mapViewSelect').value;
+        const userId = 'current-user-id'; // Replace with logic to get the current user's ID
 
-    // Add markers to the cluster group
-    markers.addLayer(marker1);
-    markers.addLayer(marker2);
-    markers.addLayer(marker3);
-
-    // Add the marker cluster group to the map
-    map.addLayer(markers);
-
-    // Add popups or tooltips (example)
-    marker1.bindTooltip("I am a tooltip for Marker 1").openTooltip();
-
-    // Handle the form submission for adding a location
-    document.getElementById('locationForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        var location = document.getElementById('location').value;
-        fetch('/addLocation', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ location: location })
-        })
-        .then(response => response.json())
-        .then(data => {
-            var latlng = [data.lat, data.lng];
-            map.setView(latlng, 10);
-            L.marker(latlng).addTo(map);
-        });
+        // Save the user preferences to DynamoDB
+        await saveUserPreferences(userId, mapView, [], 'default'); // Assuming an empty array for favorite locations and a default theme for now
     });
+
+    // Call this function when the map page loads to apply saved user preferences
+    applyUserPreferences();
 }

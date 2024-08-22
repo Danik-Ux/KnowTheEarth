@@ -1,11 +1,5 @@
 {
-  "AppSyncApiName": "knowtheearth",
+  "AppSyncApiName": "Knowtheearth",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false,
-  "AuthCognitoUserPoolId": {
-    "Fn::GetAtt": [
-      "authKnowtheearth",
-      "Outputs.UserPoolId"
-    ]
-  }
+  "DynamoDBEnableServerSideEncryption": false
 }

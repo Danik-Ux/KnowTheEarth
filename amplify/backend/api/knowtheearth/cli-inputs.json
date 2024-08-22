@@ -1,17 +1,22 @@
 {
   "version": 1,
   "serviceConfiguration": {
-    "apiName": "knowtheearth",
+    "apiName": "Knowtheearth",
     "serviceName": "AppSync",
     "defaultAuthType": {
       "mode": "API_KEY",
-      "expirationTime": 7
+      "keyDescription": "api key description",
+      "expirationTime": 30
     },
     "additionalAuthTypes": [
       {
-        "mode": "AMAZON_COGNITO_USER_POOLS",
-        "cognitoUserPoolId": "authKnowtheearth"
+        "mode": "AWS_IAM"
       }
-    ]
+    ],
+    "conflictResolution": {
+      "defaultResolutionStrategy": {
+        "type": "NONE"
+      }
+    }
   }
 }
