@@ -1,5 +1,5 @@
 
-// Wrap the existing code in a function to ensure imports are resolved first
+// Wrap the existing code in a function to ensure imports are resolved first.
 (function initializeApp() {
     // Redirect to AWS Cognito Hosted UI for authentication
     if (!window.location.href.includes('code=')) {
