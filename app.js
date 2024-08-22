@@ -7,12 +7,19 @@ Amplify.configure(awsconfig);
 
 const client = generateClient();
 
-// Redirect to AWS Cognito Hosted UI for authentication
-if (!window.location.href.includes('code=')) {
+// Check if the user is authenticated
+const urlParams = new URLSearchParams(window.location.search);
+const code = urlParams.get('code');
+
+if (!code) {
+    // Redirect to AWS Cognito Hosted UI for authentication if the user is not authenticated
     window.location.href = 'https://knowtheearth.auth.us-west-2.amazoncognito.com/login?client_id=14rnop7mqm59es8ku2h5m9vkaa&response_type=code&scope=email+openid+phone&redirect_uri=https://main.d3hwxvxjqggka.amplifyapp.com';
 } else {
-    // Assuming the user is authenticated, you can now run your map initialization code
-    
+    // Initialize the map after authentication
+    initializeMap();
+}
+
+function initializeMap() {
     // Initialize the map
     var map = L.map('map', {
         fullscreenControl: true, // Enable fullscreen control
