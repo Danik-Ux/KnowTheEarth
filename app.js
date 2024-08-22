@@ -16,7 +16,6 @@ if (!code) {
     window.location.href = 'https://knowtheearth.auth.us-west-2.amazoncognito.com/login?client_id=14rnop7mqm59es8ku2h5m9vkaa&response_type=code&scope=email+openid+phone&redirect_uri=https://main.d3hwxvxjqggka.amplifyapp.com';
 } else {
 
-
 function initializeMap() {
     // Initialize the map
     var map = L.map('map', {
