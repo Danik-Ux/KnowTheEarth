@@ -4,7 +4,7 @@ if (!window.location.href.includes('code=')) {
 } else {
     // Assuming the user is authenticated, you can now run your map initialization code
 
-    // Initialize the map
+    // Initialize the map.
     var map = L.map('map', {
         fullscreenControl: true, // Enable fullscreen control
         zoomsliderControl: true, // Enable zoomslider control
